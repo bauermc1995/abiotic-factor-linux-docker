@@ -18,7 +18,7 @@ AdditionalArgs="${AdditionalArgs:-}"
 
 # Check for updates/perform initial installation
 if [ ! -d "/server/AbioticFactor/Binaries/Win64" ] || [[ $AutoUpdate == "true" ]]; then
-    steamcmd \
+    box64 /steamcmd/steamcmd.sh \
     +@sSteamCmdForcePlatformType windows \
     +force_install_dir /server \
     +login anonymous \
@@ -27,7 +27,7 @@ if [ ! -d "/server/AbioticFactor/Binaries/Win64" ] || [[ $AutoUpdate == "true" ]
 fi
 
 pushd /server/AbioticFactor/Binaries/Win64 > /dev/null
-wine AbioticFactorServer-Win64-Shipping.exe $SetUsePerfThreads$SetNoAsyncLoadingThread-MaxServerPlayers=$MaxServerPlayers \
+box64 wine AbioticFactorServer-Win64-Shipping.exe $SetUsePerfThreads$SetNoAsyncLoadingThread-MaxServerPlayers=$MaxServerPlayers \
     -PORT=$Port -QueryPort=$QueryPort -ServerPassword=$ServerPassword \
     -SteamServerName="$SteamServerName" -WorldSaveName="$WorldSaveName" -tcp $AdditionalArgs
 popd > /dev/null

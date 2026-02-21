@@ -1,3 +1,6 @@
+# Update
+Updated to work on arm64. Uses Box86 and Box64 to run SteamCMD and Wine on arm64.
+
 # Abiotic Factor Linux Docker
 For operating a dedicated server in Docker in order to use it under Linux.
 The container uses Wine to run the server under Linux. 
